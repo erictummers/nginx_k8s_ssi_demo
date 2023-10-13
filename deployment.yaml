@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site
+spec:
+  selector:
+    matchLabels:
+      app: site
+  template:
+    metadata:
+      labels:
+        app: site
+    spec:
+      containers:
+      - image: site:20231013.1
+        name: nginx
+        env:
+        - name: CONTAINER_VERSION
+          value: "20231013.1"
